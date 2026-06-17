@@ -43,7 +43,7 @@ class LigaEquipo(models.Model):
     jugados = fields.Integer(compute="_compute_jugados", store=True)
 
     @api.depends('victorias', 'empates', 'derrotas')
-    def _compute_jugados(self)
+    def _compute_jugados(self):
         for record in self:
             record.jugados = record.victorias + record.empates + record.derrotas
 
